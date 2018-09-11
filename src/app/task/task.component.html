@@ -1,8 +1,5 @@
-<p>
-  Сделать: {{task.name}},<br>
-  описание: {{task.description}},<br>
-  исполнитель: {{task.executor}},<br>
-  приоритет: {{task.priority}}
-</p>
+<div>
+  <a [routerLink]="['tasks', task.id]">{{task.name}}</a>
+</div>
 
 <button *ngIf="moveEnabled" (click)="moveAhead()">Вперед</button>

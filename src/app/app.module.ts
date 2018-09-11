@@ -7,9 +7,20 @@ import {StageComponent} from './stage/stage.component';
 import {TaskComponent} from './task/task.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {TaskFormComponent} from './task-form/task-form.component';
-import { FormErrorComponent } from './form-error/form-error.component';
+import {FormErrorComponent} from './form-error/form-error.component';
 import {HttpClientModule} from '@angular/common/http';
 import {BackendService} from './backend.service';
+import {TaskPageComponent} from './task-page/task-page.component';
+import {RouterModule, Routes} from '@angular/router';
+
+const routes: Routes = [{
+  path: '',
+  component: BoardComponent,
+  pathMatch: 'full'
+}, {
+  path: 'tasks/:id',
+  component: TaskPageComponent
+}];
 
 @NgModule({
   declarations: [
@@ -18,13 +29,15 @@ import {BackendService} from './backend.service';
     StageComponent,
     TaskComponent,
     TaskFormComponent,
-    FormErrorComponent
+    FormErrorComponent,
+    TaskPageComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [BackendService],
   bootstrap: [AppComponent]

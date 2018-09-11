@@ -1,0 +1,15 @@
+<p>
+  Сделать: {{task?.name}},<br>
+  описание: {{task?.description}},<br>
+  исполнитель: {{task?.executor}},<br>
+  приоритет: {{task?.priority}}
+</p>
+
+<div>
+  <a *ngIf="task?.previousId" [routerLink]="['/', 'tasks', task?.previousId]">
+    Предыдущая задача
+  </a>
+  <a *ngIf="task?.nextId" [routerLink]="['/', 'tasks', task?.nextId]">
+    Следующая задача
+  </a>
+</div>
